@@ -1,6 +1,6 @@
 # ts-express-api-template
 
-A TypeScript API starter template using Express.js. This project provides a structured foundation for building scalable and maintainable APIs with TypeScript.
+A TypeScript API starter template using Express.js.
 
 ## Table of Contents
 
