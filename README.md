@@ -49,22 +49,22 @@ PORT=3000
    ```
    src/
 ├── api/
-│   ├── controllers/      # Business logic and request handling
-│   ├── middlewares/      # Custom middlewares for request processing
-│   ├── routes/           # Route definitions and management
-│   └── services/         # Business services and data handling
-│   └── index.ts          # Export all the API routes
-├── config/               # 
-│   └── index.ts          # Configuration file
-├── loaders/              # 
-│   └── express.ts        # Express app loader
-│   └── logger.ts         # Logger loader (winston)
-│   └── index.ts          # Export loaders
-├── types/                # Type definitions
-│   └── config.ts         # Custom Config types
-│   └── error.ts          # Custom error types
-├── app.ts                # Entry point of the application
-└── ...
+│   ├── controllers/        # Business logic and request handling
+│   ├── middlewares/        # Custom middlewares for request processing
+│   │   └── errorHandler.ts # Custom error handler middleware
+│   ├── routes/             # Route definitions and management
+│   ├── services/           # Business services and data handling
+│   └── index.ts            # Exports all API routes
+├── config/                 # Configuration files
+│   └── index.ts            # Main configuration file
+├── loaders/                # Application loaders
+│   ├── express.ts          # Express app loader
+│   ├── logger.ts           # Logger loader (winston)
+│   └── index.ts            # Exports all loaders
+├── types/                  # Type definitions
+│   ├── config.ts           # Custom config types
+│   └── error.ts            # Custom error types
+├── app.ts                  # Entry point of the application
 
    ```
 
