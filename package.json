@@ -1,0 +1,28 @@
+{
+  "name": "ts-express-api-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "celebrate": "^15.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "typescript": "^5.6.2",
+    "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "@types/typescript": "^0.4.29",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
+  }
+}
