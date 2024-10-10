@@ -15,7 +15,7 @@ async function startServer(): Promise<void> {
             Logger.info(`
             ################################################
             🟢  Server is listening on port: ${config.port}
-            🌍  Environment: ${process.env.NODE_ENV || "development"}
+            🌍  Environment: ${config.env}
             🕒  Startup Time: ${new Date().toLocaleTimeString()}
             ################################################
             `);
