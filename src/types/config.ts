@@ -1,7 +1,7 @@
 export interface IConfig {
     env: string,
     port: number;
-    logs: {
+    logs?: {
         level: string;
     };
     api: {

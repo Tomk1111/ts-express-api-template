@@ -3,28 +3,27 @@ import config from "../../config";
 import Logger from "../../loaders/logger";
 import { IError as CustomError } from "../../types/error";
 
+const errorHandler: ErrorRequestHandler = (err, req: Request, res: Response, next: NextFunction): void => {
+    // Log the error and request for better traceability
+    Logger.error("Error occurred on %s %s: %o", req.method, req.originalUrl, err);
 
-const errorHandler: ErrorRequestHandler = (err: any, req: Request, res: Response, next: NextFunction): void => {
-    Logger.error("Error: %o, Request: %o", err, req);
-
-    const errorName: string = err.name || "InternalServerError";
-    const errorStatus: number = err.status || 500;
-    const errorMessage: string = err.message || "Something went wrong";
-
+    // Extract error information, providing defaults if values are missing
     const errorData: CustomError = {
         success: false,
-        name: errorName,
-        status: errorStatus,
-        message: errorMessage,
-    }
+        name: err.name || "InternalServerError",
+        status: err.status || 500,
+        message: err.message || "Something went wrong",
+    };
 
+    // Include stack trace in development mode
     if (config.env === "development") {
         errorData.stack = err.stack;
     }
 
-    res.status(errorStatus).json(errorData);
+    // Send a JSON response to the client with the error details
+    res.status(errorData.status).json(errorData);
     next();
+};
 
-}
+export default errorHandler;
 
-export default errorHandler

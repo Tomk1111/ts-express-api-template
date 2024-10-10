@@ -8,6 +8,7 @@ if (config.env !== "development") {
             format: winston.format.combine(
                 winston.format.cli(),
                 winston.format.splat(),
+		winston.format.simple()
             )
         }),
     )
@@ -23,7 +24,7 @@ if (config.env !== "development") {
 }
 
 const Logger: winston.Logger = winston.createLogger({
-    level: config.logs.level,
+    level: config.logs!.level,
     levels: winston.config.npm.levels,
     format: winston.format.combine(
         winston.format.timestamp({
@@ -35,5 +36,14 @@ const Logger: winston.Logger = winston.createLogger({
     ),
     transports
 });
+
+Logger.exceptions.handle(
+    	new winston.transports.Console({ format: winston.format.simple() })
+);
+
+Logger.rejections.handle(
+	new winston.transports.Console({ format: winston.format.simple() })
+);
+
 
 export default Logger;

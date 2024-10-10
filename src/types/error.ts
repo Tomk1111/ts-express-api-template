@@ -1,6 +1,5 @@
-export interface IError {
-    success: boolean,
-    name: string,
+export interface IError extends Error {
+    success?: boolean,
     status: number,
     message: string,
     stack?: string
